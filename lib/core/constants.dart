@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/models/models.dart';
+import '../models/models.dart';
 import 'theme.dart';
 
 /// Every constant of the app lives here: copy, links, sizes, durations, palettes and content.
@@ -12,6 +12,11 @@ class K {
   static const tagline = 'I build Flutter apps that stay fast and usable offline, from restaurant ERPs to live analytics dashboards.';
   static const contactTitle = 'Let\'s build something\npeople enjoy using.';
   static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
+  static const heroWord = 'FLUTTER';
+  static const heroWordMobile = ['FLUT', 'TER']; // splits onto two lines on phones
+  static const heroWordStretch = 1.45; // makes the background word taller than its natural proportions
+  static const characterAsset = 'assets/character/hero.webp';
+  static const characterAspect = 0.854; // width / height of the cropped image
   static const navLinks = ['Experience', 'Work', 'Stack'];
 
   static const ms = Duration(milliseconds: 300);

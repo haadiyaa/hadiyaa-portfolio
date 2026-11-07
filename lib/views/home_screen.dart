@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/widgets/backdrop.dart';
-import 'package:haadiya_portfolio/core/constants.dart';
-import 'package:haadiya_portfolio/views/sections/contact_section.dart';
-import 'package:haadiya_portfolio/views/sections/experience_section.dart';
-import 'package:haadiya_portfolio/views/sections/hero_section.dart';
-import 'package:haadiya_portfolio/widgets/nav_bar.dart';
-import 'package:haadiya_portfolio/viewmodels/nav_vm.dart';
-import 'package:haadiya_portfolio/core/responsive.dart';
-import 'package:haadiya_portfolio/views/sections/stack_section.dart';
-import 'package:haadiya_portfolio/views/sections/work_section.dart';
 import 'package:provider/provider.dart' as pv;
+import '../core/constants.dart';
+import '../core/responsive.dart';
+import '../viewmodels/nav_vm.dart';
+import '../widgets/backdrop.dart';
+// import '../widgets/nav_bar.dart'; // navbar switched off for now
+import 'sections/contact_section.dart';
+import 'sections/experience_section.dart';
+import 'sections/hero_section.dart';
+import 'sections/stack_section.dart';
+import 'sections/work_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -44,12 +44,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: context.pad),
                                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                  HeroSection(intro),
+                                  HeroSection(intro, loop, mouse),
                                   const ExperienceSection(),
                                   const WorkSection(),
                                   const StackSection(),
                                   const ContactSection(),
                                 ]))))),
-                const Positioned(top: 0, left: 0, right: 0, child: NavBar()),
+                // const Positioned(top: 0, left: 0, right: 0, child: NavBar()), // navbar switched off for now
               ]))));
 }
