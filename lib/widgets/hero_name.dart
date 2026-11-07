@@ -12,6 +12,6 @@ class HeroName extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(left: spacing), // balances the gap Flutter adds after the last letter
         child: Text(K.name.toUpperCase(),
-            style: head(context, context.mob ? 15 : 20, context.p.soft).copyWith(fontWeight: FontWeight.w600, letterSpacing: spacing, height: 1.2)));
+            style: head(context, context.mob ? 15 : 20, context.p.ink).copyWith(fontWeight: FontWeight.w600, letterSpacing: spacing, height: 1.2)));
   }
 }

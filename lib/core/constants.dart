@@ -14,6 +14,7 @@ class K {
   static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
   static const heroWord = 'FLUTTER';
   static const heroWordMobile = ['FLUT', 'TER']; // splits onto two lines on phones
+  static const heroWordOpacity = 0.12; // how visible the background word is (0 to 1)
   static const heroWordStretch = 1.45; // makes the background word taller than its natural proportions
   static const characterAsset = 'assets/character/hero.webp';
   static const characterAspect = 0.854; // width / height of the cropped image
