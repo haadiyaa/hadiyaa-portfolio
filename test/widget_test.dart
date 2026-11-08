@@ -14,12 +14,13 @@ Future<void> pumpApp(WidgetTester t, double width, [double height = 1000]) async
 Finder inWord(String letter) => find.descendant(of: find.byType(HeroWord), matching: find.text(letter));
 
 void main() {
-  testWidgets('desktop shows the word, the character and the name', (t) async {
+  testWidgets('desktop shows the label, the word, the character and the name', (t) async {
     await pumpApp(t, 1400);
     expect(find.byType(HeroWord), findsOneWidget);
-    expect(inWord('F'), findsOneWidget);
-    expect(inWord('T'), findsNWidgets(2)); // FLUTTER has two Ts
+    expect(inWord('D'), findsOneWidget);
+    expect(inWord('E'), findsNWidgets(3)); // DEVELOPER has three Es
     expect(inWord('R'), findsOneWidget);
+    expect(find.text('FLUTTER'), findsOneWidget); // small spaced label above the word
     expect(find.byType(Image), findsOneWidget); // floating character
     expect(find.text('HAADIYA CT'), findsOneWidget); // name in capitals under her
     expect(find.text('Experience'), findsOneWidget); // section title; the navbar is switched off
@@ -33,8 +34,8 @@ void main() {
 
   testWidgets('mobile splits the word over two lines and has no overflow', (t) async {
     await pumpApp(t, 390, 800);
-    expect(find.descendant(of: find.byType(HeroWord), matching: find.byType(Row)), findsNWidgets(2)); // FLUT and TER
-    expect(inWord('F'), findsOneWidget);
+    expect(find.descendant(of: find.byType(HeroWord), matching: find.byType(Row)), findsNWidgets(2)); // DEVEL and OPER
+    expect(inWord('D'), findsOneWidget);
     expect(inWord('R'), findsOneWidget);
     expect(find.text('HAADIYA CT'), findsOneWidget);
     expect(t.takeException(), isNull);

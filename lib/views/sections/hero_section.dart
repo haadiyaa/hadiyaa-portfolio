@@ -31,8 +31,10 @@ class HeroSection extends StatelessWidget {
                 builder: (_, o, __) => AnimatedBuilder(
                     animation: intro,
                     builder: (_, __) => Stack(clipBehavior: Clip.none, children: [
-                          // Letters come out one by one (see HeroWord), then the image and the name fade in.
-                          Align(alignment: const Alignment(0, -.25), child: Transform.translate(offset: Offset(-o.dx * 22, -o.dy * 14), child: HeroWord(intro))),
+                          // The label and the word ignore the cursor. Letters come out one by one (see HeroWord),
+                          // then the image and the name fade in, and only the image follows the cursor.
+                          Align(alignment: const Alignment(0, -.8), child: Opacity(opacity: _fade(intro.value, .1, .5), child: const HeroName(K.heroLabel))),
+                          Align(alignment: const Alignment(0, -.25), child: HeroWord(intro)),
                           Align(
                               alignment: Alignment.bottomCenter,
                               child: Padding(
@@ -42,7 +44,7 @@ class HeroSection extends StatelessWidget {
                                       child: Column(mainAxisSize: MainAxisSize.min, children: [
                                         Opacity(opacity: _fade(intro.value, .55, 1), child: FloatingCharacter(loop, charH)),
                                         const SizedBox(height: 14),
-                                        Opacity(opacity: _fade(intro.value, .75, 1), child: const HeroName()),
+                                        Opacity(opacity: _fade(intro.value, .75, 1), child: HeroName(K.name.toUpperCase())),
                                       ])))),
                         ])))));
   }

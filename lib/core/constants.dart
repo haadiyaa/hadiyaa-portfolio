@@ -12,10 +12,11 @@ class K {
   static const tagline = 'I build Flutter apps that stay fast and usable offline, from restaurant ERPs to live analytics dashboards.';
   static const contactTitle = 'Let\'s build something\npeople enjoy using.';
   static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
-  static const heroWord = 'FLUTTER';
-  static const heroWordMobile = ['FLUT', 'TER']; // splits onto two lines on phones
+  static const heroLabel = 'FLUTTER'; // small spaced label above the big word
+  static const heroWord = 'DEVELOPER';
+  static const heroWordMobile = ['DEVEL', 'OPER']; // splits onto two lines on phones
   static const heroWordOpacity = 0.12; // how visible the background word is (0 to 1)
-  static const heroWordStretch = 1.45; // makes the background word taller than its natural proportions
+  static const heroWordStretch = 1.7; // makes the background word taller than its natural proportions
   static const characterAsset = 'assets/character/hero.webp';
   static const characterAspect = 0.854; // width / height of the cropped image
   static const navLinks = ['Experience', 'Work', 'Stack'];
