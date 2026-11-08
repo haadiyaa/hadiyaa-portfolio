@@ -18,3 +18,7 @@ List<(String, bool)> marked(String s) {
   final parts = s.split('*');
   return [for (var i = 0; i < parts.length; i++) if (parts[i].isNotEmpty) (parts[i], i.isOdd)];
 }
+
+/// Opacity of content whose bottom edge is [bottom] px from the top of the screen: fully visible
+/// below the fade zone, easing to nothing as it reaches the top.
+double exitFade(double bottom, double zone) => zone <= 0 ? 1 : Curves.easeInOut.transform((bottom / zone).clamp(0.0, 1.0).toDouble());

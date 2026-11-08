@@ -1,8 +1,10 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../core/constants.dart';
+import '../viewmodels/hero_vm.dart';
 
-/// Fades and lifts its child in once it scrolls into view.
+/// Fades and lifts its child in once it scrolls into view, and fades it out again (lifting slightly)
+/// as it leaves through the top of the screen, like the hero does.
 class Reveal extends StatefulWidget {
   final Widget child;
   final int delay;
@@ -13,18 +15,19 @@ class Reveal extends StatefulWidget {
 
 class _RevealState extends State<Reveal> {
   bool shown = false, queued = false;
+  final exit = ValueNotifier<double>(1); // 1 = fully visible, 0 = gone off the top
   ScrollPosition? pos;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    pos?.removeListener(check);
-    pos = Scrollable.maybeOf(context)?.position?..addListener(check);
-    WidgetsBinding.instance.addPostFrameCallback((_) => check());
+    pos?.removeListener(update);
+    pos = Scrollable.maybeOf(context)?.position?..addListener(update);
+    WidgetsBinding.instance.addPostFrameCallback((_) => update());
   }
 
-  void check() {
-    if (queued || !mounted) return;
+  void update() {
+    if (!mounted) return;
     final box = context.findRenderObject() as RenderBox?;
     if (box == null || !box.attached || !box.hasSize) return;
     double y;
@@ -33,17 +36,20 @@ class _RevealState extends State<Reveal> {
     } catch (_) {
       return; // an ancestor is not laid out yet; the next scroll or frame retries
     }
-    if (y < MediaQuery.of(context).size.height * .92) {
+    final h = MediaQuery.of(context).size.height;
+    if (!queued && y < h * .92) {
       queued = true;
       Future.delayed(Duration(milliseconds: widget.delay), () {
         if (mounted) setState(() => shown = true);
       });
     }
+    exit.value = exitFade(y + box.size.height, h * K.fadeZone);
   }
 
   @override
   void dispose() {
-    pos?.removeListener(check);
+    pos?.removeListener(update);
+    exit.dispose();
     super.dispose();
   }
 
@@ -56,7 +62,10 @@ class _RevealState extends State<Reveal> {
           offset: shown ? Offset.zero : const Offset(0, .08),
           duration: K.revealMs,
           curve: Curves.easeOutCubic,
-          child: widget.child));
+          child: ValueListenableBuilder<double>(
+              valueListenable: exit,
+              child: widget.child,
+              builder: (_, e, child) => Opacity(opacity: e, child: Transform.translate(offset: Offset(0, -(1 - e) * 28), child: child)))));
 }
 
 /// One piece of the page-load sequence: enters at [start] on the shared [anim] timeline.

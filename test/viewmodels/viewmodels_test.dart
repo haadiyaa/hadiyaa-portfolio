@@ -88,4 +88,11 @@ void main() {
     expect(marked('a *b* c'), [('a ', false), ('b', true), (' c', false)]);
     expect(marked('plain'), [('plain', false)]);
   });
+
+  test('exitFade is 1 below the zone and 0 at the top of the screen', () {
+    expect(exitFade(600, 250), 1);
+    expect(exitFade(0, 250), 0);
+    expect(exitFade(-100, 250), 0);
+    expect(exitFade(125, 250), inExclusiveRange(0, 1));
+  });
 }
