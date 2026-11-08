@@ -36,7 +36,7 @@ class K {
       1.0; // extra scroll, in screen heights, during which the hero stays pinned
   static const characterAsset = 'assets/character/hero.webp';
   static const characterAspect = 0.854; // width / height of the cropped image
-  static const navLinks = ['Experience', 'Work', 'Stack'];
+  static const navLinks = ['Experience', 'Works', 'Tech Stack'];
 
   static const ms = Duration(milliseconds: 300);
   static const revealMs = Duration(milliseconds: 800);
@@ -78,7 +78,7 @@ class K {
   ];
 
   static const jobs = [
-    Job('Flutter developer', 'Screl Info', 'Nov 2024 to Oct 2026', [
+    Job('Flutter developer', 'Screl Info Pvt Ltd.', 'Nov 2024 to Oct 2026', [
       'Shipped ERP modules across sales, inventory, CRM and finance in Flutter and Dart.',
       'Owned the web front end and WPF desktop app for SincA ERP in C# and .NET.',
       'Worked with backend teams to shape and tune the APIs the apps depend on.',
