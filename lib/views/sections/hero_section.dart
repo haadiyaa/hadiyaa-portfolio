@@ -7,6 +7,7 @@ import '../../widgets/floating_character.dart';
 import '../../widgets/hero_intro.dart';
 import '../../widgets/hero_name.dart';
 import '../../widgets/hero_word.dart';
+import '../../widgets/scroll_hint.dart';
 
 /// The hero stays pinned for a while as you scroll: the character lifts away and the intro
 /// is revealed under the big word. Then the hero scrolls off and the page carries on.
@@ -52,7 +53,7 @@ class HeroSection extends StatelessWidget {
                       // Label and word stay still and ignore the cursor. Only the character follows it.
                       Align(alignment: const Alignment(0, -.8), child: Opacity(opacity: _fade(intro.value, .1, .5), child: const HeroName(K.heroLabel))),
                       Align(alignment: const Alignment(0, -.25), child: HeroWord(intro)),
-                      Align(alignment: Alignment(0, mob ? .5 : .34), child: HeroIntro(p)),
+                      Align(alignment: Alignment(0, mob ? .55 : .5), child: HeroIntro(p)),
                       Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(
@@ -72,14 +73,14 @@ class HeroSection extends StatelessWidget {
                                               ..rotateY(-o.dx * K.charTilt.dx), // cursor right: right side turns away, so she faces it
                                             child: FloatingCharacter(loop, charH)))),
                                 const SizedBox(height: 14),
-                                Opacity(opacity: _fade(intro.value, .75, 1) * (1 - phase(p, 0, .25)), child: HeroName(K.name.toUpperCase())),
+                                Opacity(opacity: _fade(intro.value, .75, 1), child: HeroName(K.name.toUpperCase())),
                               ]))),
                       if (!mob)
                         Align(
                             alignment: Alignment.bottomRight,
                             child: Padding(
                                 padding: const EdgeInsets.only(bottom: 40),
-                                child: Opacity(opacity: _fade(intro.value, .8, 1) * (1 - phase(p, 0, .15)), child: const HeroName(K.scrollHint)))),
+                                child: Opacity(opacity: _fade(intro.value, .8, 1) * (1 - phase(p, 0, .15)), child: const ScrollHint(K.scrollHint)))),
                     ]))));
   }
 }
