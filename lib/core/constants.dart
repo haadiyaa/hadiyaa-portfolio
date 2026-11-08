@@ -78,17 +78,34 @@ class K {
   ];
 
   static const jobs = [
-    Job('Flutter developer', 'Screl Info Pvt Ltd.', 'Nov 2024 to Oct 2026', [
-      'Shipped ERP modules across sales, inventory, CRM and finance in Flutter and Dart.',
-      'Owned the web front end and WPF desktop app for SincA ERP in C# and .NET.',
-      'Worked with backend teams to shape and tune the APIs the apps depend on.',
-    ]),
-    Job('Flutter developer intern', 'Self Stack', 'Sep 2023 to Nov 2024', [
-      'Turned Figma designs into responsive screens wired to REST APIs.',
-      'Worked with Provider, GetX and BLoC on real client features.',
-    ]),
-    Job('B.Sc. Computer Science',
-        'Providence Women\'s College, University of Calicut', '2020 to 2023'),
+    Job(
+      'Flutter developer',
+      'Screl Info Pvt Ltd., Kozhikode, Kerala',
+      'Nov 2024 to Oct 2026',
+      [
+        'Shipped ERP modules across sales, inventory, CRM and finance in Flutter and Dart.',
+        'Owned the web front end and WPF desktop app for SincA ERP in C# and .NET.',
+        'Worked with backend teams to shape and tune the APIs the apps depend on.',
+      ],
+    ),
+    Job(
+      'Flutter developer intern',
+      'Self Stack, Kozhikode, Kerala',
+      'Sep 2023 to Nov 2024',
+      [
+        'Turned Figma designs into responsive screens wired to REST APIs.',
+        'Worked with Provider, GetX and BLoC on real client features.',
+      ],
+    ),
+    Job(
+      'B.Sc. Computer Science',
+      'Providence Women\'s College, University of Calicut',
+      '2020 to 2023',
+      [
+        'Secured \'A\' Grade and is placed the in First Class Distinction.',
+        '7.62 CGPA'
+      ],
+    ),
   ];
 
   static const projects = [
