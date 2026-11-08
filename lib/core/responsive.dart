@@ -4,6 +4,7 @@ import 'constants.dart';
 extension Responsive on BuildContext {
   double get w => MediaQuery.sizeOf(this).width;
   double get h => MediaQuery.sizeOf(this).height;
+  double get pin => h * K.pinFactor; // scroll distance the hero stays pinned for
   bool get mob => w < K.mobileBp;
   bool get wide => w >= K.wideBp;
   double get pad => w < K.mobileBp ? 22 : (w < K.tabletBp ? 44 : 80);

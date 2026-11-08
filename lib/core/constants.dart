@@ -12,11 +12,19 @@ class K {
   static const tagline = 'I build Flutter apps that stay fast and usable offline, from restaurant ERPs to live analytics dashboards.';
   static const contactTitle = 'Let\'s build something\npeople enjoy using.';
   static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
+  static const introLines = [
+    "Hi, I'm Haadiya, a *Flutter developer* from Kerala.",
+    'I build fast, polished apps for Android, iOS, desktop and web,',
+    'with clean code and the *small details* people notice.',
+  ]; // *text* is shown in the accent colour
+  static const scrollHint = 'SCROLL';
   static const heroLabel = 'FLUTTER'; // small spaced label above the big word
   static const heroWord = 'DEVELOPER';
   static const heroWordMobile = ['DEVEL', 'OPER']; // splits onto two lines on phones
-  static const heroWordOpacity = 0.12; // how visible the background word is (0 to 1)
   static const heroWordStretch = 1.7; // makes the background word taller than its natural proportions
+  static const charShift = Offset(34, 18); // how far (px) the character slides towards the cursor
+  static const charTilt = Offset(.2, .13); // how far (radians) she turns: x = left/right, y = up/down
+  static const pinFactor = 1.0; // extra scroll, in screen heights, during which the hero stays pinned
   static const characterAsset = 'assets/character/hero.webp';
   static const characterAspect = 0.854; // width / height of the cropped image
   static const navLinks = ['Experience', 'Work', 'Stack'];

@@ -20,12 +20,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late final loop = AnimationController(vsync: this, duration: K.loopMs)..repeat();
   late final intro = AnimationController(vsync: this, duration: K.introMs)..forward();
+  final scroll = ScrollController();
   final mouse = ValueNotifier<Offset>(const Offset(-500, -500));
 
   @override
   void dispose() {
     loop.dispose();
     intro.dispose();
+    scroll.dispose();
     super.dispose();
   }
 
@@ -37,14 +39,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               onHover: (e) => mouse.value = e.position,
               child: Stack(children: [
                 Backdrop(loop, mouse),
+                HeroSection(intro, loop, mouse, scroll), // pinned behind the page, driven by the scroll position
                 SingleChildScrollView(
+                    controller: scroll,
                     child: Center(
                         child: ConstrainedBox(
                             constraints: const BoxConstraints(maxWidth: K.maxWidth),
                             child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: context.pad),
                                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                  HeroSection(intro, loop, mouse),
+                                  SizedBox(height: context.h * (1 + K.pinFactor)), // room for the pinned hero
                                   const ExperienceSection(),
                                   const WorkSection(),
                                   const StackSection(),
