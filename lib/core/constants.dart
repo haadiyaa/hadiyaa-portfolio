@@ -13,10 +13,9 @@ class K {
   static const contactTitle = 'Let\'s build something\npeople enjoy using.';
   static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
   static const introLines = [
-    "Hi, I'm Haadiya, a *Flutter developer* from Kerala.",
-    'I build fast, polished apps for Android, iOS, desktop and web,',
-    'with clean code and the *small details* people notice.',
-  ]; // *text* is shown in the accent colour
+    "Building *cross-platform* scalable applications.",
+    'Focused on clean code, seamless integrations, and intuitive user experiences.',
+]; // *text* is shown in the accent colour
   static const fadeZone = .25; // top share of the screen where content fades out as it scrolls away
   static const scrollHint = 'Scroll';
   static const heroLabel = 'FLUTTER'; // small spaced label above the big word
