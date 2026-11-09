@@ -27,7 +27,8 @@ class K {
   static const charTilt = Offset(.2, .13); // how far (radians) she turns: x = left/right, y = up/down
   static const pinFactor = 1.0; // extra scroll, in screen heights, during which the hero stays pinned
   static const particleSample = 600; // width (px) the image is decoded at before it is turned into particles
-  static const particleStep = 6; // one particle per this many sampled px: smaller = more, finer particles
+  static const particleStep = 4; // one particle per this many sampled px: smaller = more, finer particles
+  static const particleSize = 2.0; // size of each particle in screen px (independent of how many there are)
   static const particleFormSeconds = 2.0; // how long the image takes to form on load
   static const particleRepelRadius = .14; // cursor push radius, as a share of the image height
   static const particleRepelForce = 12000.0; // how hard the cursor pushes particles away

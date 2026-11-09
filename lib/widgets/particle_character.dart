@@ -106,7 +106,7 @@ class _Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final hs = f.cell * scale * .55; // slightly more than half a cell, so a formed image has no gaps
+    final hs = K.particleSize / 2; // half the particle size, in screen px
     var o = 0;
     for (var i = 0; i < f.count; i++) {
       final x = f.x[i] * scale, y = f.y[i] * scale;
