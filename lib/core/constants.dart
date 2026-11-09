@@ -100,7 +100,10 @@ class K {
       'Worked with Provider, GetX and BLoC on real client features.',
     ]),
     Job('B.Sc. Computer Science',
-        'Providence Women\'s College, University of Calicut', '2020 to 2023'),
+        'Providence Women\'s College, University of Calicut', '2020 to 2023',[
+        'Secured \'A\' Grade and is placed in the First Class Distinction.',
+        '7.62 CGPA'
+      ],),
   ];
 
   static const projects = [
