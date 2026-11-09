@@ -48,7 +48,7 @@ class K {
       12000.0; // how hard the cursor pushes particles away
   static const characterAsset = 'assets/character/hero.webp';
   static const characterAspect = 0.854; // width / height of the cropped image
-  static const navLinks = ['Experience', 'Work', 'Stack'];
+  static const navLinks = ['Experience', 'Work', 'Tech Stack'];
 
   static const ms = Duration(milliseconds: 300);
   static const revealMs = Duration(milliseconds: 800);
