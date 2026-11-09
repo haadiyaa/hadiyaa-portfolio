@@ -1,9 +1,11 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:haadiya_portfolio/core/constants.dart';
 import 'package:haadiya_portfolio/viewmodels/hero_vm.dart';
 import 'package:haadiya_portfolio/viewmodels/nav_vm.dart';
+import 'package:haadiya_portfolio/viewmodels/particles_vm.dart';
 import 'package:haadiya_portfolio/viewmodels/portfolio_vm.dart';
 import 'package:haadiya_portfolio/viewmodels/theme_vm.dart';
 
@@ -94,5 +96,51 @@ void main() {
     expect(exitFade(0, 250), 0);
     expect(exitFade(-100, 250), 0);
     expect(exitFade(125, 250), inExclusiveRange(0, 1));
+  });
+
+  group('ParticleField', () {
+    // A 20 x 20 image where only the left half is opaque.
+    ParticleField field() {
+      final rgba = Uint8List(20 * 20 * 4);
+      for (var j = 0; j < 20; j++) {
+        for (var i = 0; i < 10; i++) {
+          rgba.setRange((j * 20 + i) * 4, (j * 20 + i) * 4 + 4, [200, 100, 50, 255]);
+        }
+      }
+      return ParticleField.fromRgba(rgba, 20, 20, 4);
+    }
+
+    test('makes one particle per sampled opaque pixel only', () {
+      expect(field().count, 2 * 5); // 4px grid: 2 columns (x = 2, 6) in the opaque left half, 5 rows
+    });
+
+    test('particles fly home when assembled', () {
+      final f = field();
+      for (var n = 0; n < 400; n++) {
+        f.step(1, 0, 1 / 60, null, null);
+      }
+      for (var i = 0; i < f.count; i++) {
+        expect((f.x[i] - f.hx[i]).abs(), lessThan(.5));
+        expect((f.y[i] - f.hy[i]).abs(), lessThan(.5));
+      }
+    });
+
+    test('dissolved particles rise with the lift', () {
+      final f = field();
+      for (var n = 0; n < 400; n++) {
+        f.step(0, 1, 1 / 60, null, null);
+      }
+      expect(f.y[0], lessThan(f.sy[0] - 10));
+    });
+
+    test('the cursor pushes a nearby particle away', () {
+      final f = field();
+      for (var n = 0; n < 400; n++) {
+        f.step(1, 0, 1 / 60, null, null);
+      }
+      final before = f.x[0];
+      f.step(1, 0, 1 / 60, f.hx[0] - 1.5, f.hy[0], radiusShare: .5); // cursor just to the left
+      expect(f.x[0], greaterThan(before));
+    });
   });
 }

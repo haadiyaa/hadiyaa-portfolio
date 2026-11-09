@@ -5,8 +5,9 @@ import '../core/constants.dart';
 /// The character image with a slow bob and a soft shadow that shrinks as she rises.
 class FloatingCharacter extends StatelessWidget {
   final Animation<double> loop;
-  final double height;
-  const FloatingCharacter(this.loop, this.height, {super.key});
+  final double height, shadowOpacity;
+  final Widget image; // the crisp image or the particle version of it
+  const FloatingCharacter(this.loop, this.height, {super.key, required this.image, this.shadowOpacity = 1});
   @override
   Widget build(BuildContext context) {
     final width = height * K.characterAspect;
@@ -18,16 +19,16 @@ class FloatingCharacter extends StatelessWidget {
           return Column(mainAxisSize: MainAxisSize.min, children: [
             Transform.translate(
                 offset: Offset(0, bob * 10),
-                child: Image.asset(K.characterAsset,
-                    width: width, height: height, fit: BoxFit.contain, filterQuality: FilterQuality.high,
-                    errorBuilder: (_, __, ___) => SizedBox(width: width, height: height))),
+                child: image),
             const SizedBox(height: 16),
-            Container(
+            Opacity(
+                opacity: shadowOpacity,
+                child: Container(
                 width: width * .55 * (1 - .06 * bob),
                 height: 18,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
-                    boxShadow: [BoxShadow(color: Colors.black.withOpacity(shadow), blurRadius: 30, spreadRadius: 4)])),
+                    boxShadow: [BoxShadow(color: Colors.black.withOpacity(shadow), blurRadius: 30, spreadRadius: 4)]))),
           ]);
         });
   }

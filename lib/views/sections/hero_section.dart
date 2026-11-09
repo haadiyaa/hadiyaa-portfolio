@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:haadiya_portfolio/widgets/particle_character.dart';
 import '../../core/constants.dart';
 import '../../core/responsive.dart';
 import '../../viewmodels/hero_vm.dart';
@@ -59,19 +60,20 @@ class HeroSection extends StatelessWidget {
                           child: Padding(
                               padding: const EdgeInsets.only(bottom: 36),
                               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                // She lifts out of the top of the screen as you scroll, and fades near the end.
+                                // She forms from particles on load, and as you scroll she dissolves back into
+                                // particles that drift up and fade (the particles do the lifting themselves).
                                 Opacity(
-                                    opacity: _fade(intro.value, .55, 1) * (1 - phase(p, .55, .95)),
-                                    child: Transform.translate(
-                                        offset: Offset(0, -p * h * 1.1),
-                                        child: Transform(
+                                    opacity: 1 - phase(p, .6, .98),
+                                    child: Transform(
                                             alignment: Alignment.center,
                                             transform: Matrix4.identity()
                                               ..setEntry(3, 2, .0012) // perspective
                                               ..translate(o.dx * K.charShift.dx, o.dy * K.charShift.dy)
                                               ..rotateX(o.dy * K.charTilt.dy) // cursor below: top tips forward
                                               ..rotateY(-o.dx * K.charTilt.dx), // cursor right: right side turns away, so she faces it
-                                            child: FloatingCharacter(loop, charH)))),
+                                            child: FloatingCharacter(loop, charH,
+                                                shadowOpacity: _fade(intro.value, .75, 1) * (1 - phase(p, 0, .3)),
+                                                image: ParticleCharacter(width: charH * K.characterAspect, height: charH, lift: p, mouse: mouse)))),
                                 const SizedBox(height: 14),
                                 Opacity(opacity: _fade(intro.value, .75, 1), child: HeroName(K.name.toUpperCase())),
                               ]))),
