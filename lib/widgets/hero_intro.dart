@@ -26,7 +26,7 @@ class HeroIntro extends StatelessWidget {
                       offset: Offset(0, (1 - t) * 28),
                       child: Text.rich(
                           TextSpan(
-                            style: TextStyle(fontSize: 30),
+                            style: TextStyle(fontSize: context.mob ? 20 : 30),
                             children: [
                               for (final (text, highlight)
                                   in marked(K.introLines[i]))
