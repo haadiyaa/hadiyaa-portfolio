@@ -456,7 +456,7 @@ s.b!==$&&A.b2()
 s.b=r
 return s},
 ax2(){var s,r=new Float32Array(20)
-for(s=0;s<4;++s)r[B.AZ[s]]=1
+for(s=0;s<4;++s)r[B.AY[s]]=1
 return $.axu=r},
 ayR(a,b){var s=$.ai.ac().ColorFilter.MakeBlend(A.abh($.Pc(),a),$.acp()[b.a])
 if(s==null)return $.ai.ac().ColorFilter.MakeMatrix($.ao3())
@@ -21917,7 +21917,7 @@ j=23*(k+0.305)*l/(a1+11*l*a3+108*l*a2)
 i=j*a3
 h=j*a2
 g=460*k
-f=A.adA(A.c([A.adm((g+451*i+288*h)/1403),A.adm((g-891*i-261*h)/1403),A.adm((g-220*i-6300*h)/1403)],p),B.B0)
+f=A.adA(A.c([A.adm((g+451*i+288*h)/1403),A.adm((g-891*i-261*h)/1403),A.adm((g-220*i-6300*h)/1403)],p),B.B_)
 g=f[0]
 if(g<0||f[1]<0||f[2]<0)return 0
 e=f[1]
@@ -63720,13 +63720,13 @@ r=n.c
 q=A.qY(a,s,A.bQ(235,r.O()>>>16&255,r.O()>>>8&255,r.O()&255)).Kv(B.U,1.35,-s*0.01)
 r=A.adO(a)
 p=A.c([],t.p)
-for(o=0;o<3;++o)p.push(new A.hy(new A.UH(this,o,n,q),null))
+for(o=0;o<2;++o)p.push(new A.hy(new A.UH(this,o,n,q),null))
 return new A.dh(new A.bg(r,0,r,0),A.fi(p,B.an,B.c3),null)}}
 A.UH.prototype={
 $1(a){var s,r,q,p,o,n,m=this,l=null,k=m.b,j=k*0.15,i=A.OY(m.a.c,0.3+j,0.55+j)
 j=A.dG(l,l,l,l,l,l,l,l,l,l,l,30,l,l,l,l,l,!0,l,l,l,l,l,l,l,l)
 s=A.c([],t.VO)
-for(k=A.azG(B.AX[k]),r=k.length,q=m.c.r,p=0;p<k.length;k.length===r||(0,A.p)(k),++p){o=k[p]
+for(k=A.azG(B.B1[k]),r=k.length,q=m.c.r,p=0;p<k.length;k.length===r||(0,A.p)(k),++p){o=k[p]
 if(o.b)n=new A.t(!0,q,l,l,l,l,l,B.bs,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l)
 else n=l
 s.push(new A.kB(o.a,l,l,B.cD,l,l,l,l,l,l,n))}return A.iR(A.xl(A.auP(A.Hl(s,l,l,l,l,l,l,l,l,j,l),m.d,B.dp),new A.r(0,(1-i)*28)),i)},
@@ -69102,12 +69102,12 @@ B.kz=new A.uG(0,"opportunity")
 B.hC=new A.uG(2,"mandatory")
 B.kA=new A.uG(3,"endOfText")
 B.AV=new A.uJ(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.AX=s(["Hi, I'm Haadiya, a *Flutter developer* from Kerala.","I build fast, polished apps for Android, iOS, desktop and web,","with clean code and the *small details* people notice."],t.s)
-B.AZ=s([0,6,12,18],t.t)
+B.AY=s([0,6,12,18],t.t)
 B.Co=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
 B.C8=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
 B.D2=s([1.9622899599665666,-57.173814538844006,308.7233197812385],t.n)
-B.B0=s([B.Co,B.C8,B.D2],t.zg)
+B.B_=s([B.Co,B.C8,B.D2],t.zg)
+B.B1=s(["Building *cross-platform* scalable applications.","Focused on clean code, seamless integrations, and intuitive user experiences."],t.s)
 B.Bp=s([4,9,14,19],t.t)
 B.CN=s([137,80,78,71,13,10,26,10],t.Z)
 B.Am=new A.jV(0,"png")
@@ -69183,14 +69183,14 @@ B.xV=new A.nM(0,"auto")
 B.xW=new A.nM(1,"full")
 B.xX=new A.nM(2,"chromium")
 B.Ch=s([B.xV,B.xW,B.xX],A.ad("v<nM>"))
-B.B1=s(["Flutter","Riverpod","SQLite","Clean Architecture"],t.s)
-B.GF=new A.ki("Isselo","Android, iOS, desktop","Restaurant management that keeps working without internet and syncs to the server on its own. Sales, CRM, HR and accounting in one app.",B.B1)
+B.B0=s(["Flutter","Riverpod","SQLite","Clean Architecture"],t.s)
+B.GF=new A.ki("Isselo","Android, iOS, desktop","Restaurant management that keeps working without internet and syncs to the server on its own. Sales, CRM, HR and accounting in one app.",B.B0)
 B.C_=s(["Flutter","Bloc","sqflite","ML Kit","go_router"],t.s)
 B.GG=new A.ki("Pantry Pal","Offline-first mobile app","Cuts household food waste: scan barcodes or receipts, get expiry reminders and recipes that use what is about to expire. Backed by 340 tests and CI.",B.C_)
 B.CH=s(["Flutter","REST APIs"],t.s)
 B.GH=new A.ki("SincA Reports","Flutter","A live window into the SincA ERP for administrators: business reports and analytics, always one tap away.",B.CH)
-B.AY=s(["C#",".NET","WPF","XAML"],t.s)
-B.GD=new A.ki("SincA ERP","Web and Windows","Enterprise suite covering sales, stock, finance, HRM and procurement. I built the web front end and the WPF desktop client.",B.AY)
+B.AX=s(["C#",".NET","WPF","XAML"],t.s)
+B.GD=new A.ki("SincA ERP","Web and Windows","Enterprise suite covering sales, stock, finance, HRM and procurement. I built the web front end and the WPF desktop client.",B.AX)
 B.BW=s(["Flutter","Device sensors"],t.s)
 B.GE=new A.ki("Hidhayah","Mobile","An Islamic companion app with prayer times, a sensor-driven Qibla compass and bilingual learning resources.",B.BW)
 B.Cj=s([B.GF,B.GG,B.GH,B.GD,B.GE],A.ad("v<ki>"))
@@ -70860,8 +70860,8 @@ B.NU=new A.xQ(B.cF)
 B.NV=new A.xQ(B.jz)
 B.NW=new A.xQ(B.jA)
 B.yX=new A.B(0.01568627450980392,0,0,0,B.h)
-B.B_=s([B.yX,B.a0],t.t_)
-B.NX=new A.hk(B.B_)
+B.AZ=s([B.yX,B.a0],t.t_)
+B.NX=new A.hk(B.AZ)
 B.NY=new A.hk(null)
 B.co=new A.Jq(0,"horizontal")
 B.cp=new A.Jq(1,"vertical")
