@@ -14,8 +14,8 @@ class K {
   static const contactTitle = 'Let\'s build something\npeople enjoy using.';
   static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
   static const introLines = [
-    "Building *cross-platform* scalable applications.",
-    'Focused on clean code, seamless integrations, and intuitive user experiences.',
+    "BUILDING *CROSS-PLATFORM* SCALABLE APPLICATIONS.",
+    'FOCUSED ON CLEAN CODE, SEAMLESS INTEGRATIONS, AND INTUITIVE USER EXPERIENCES.',
   ]; // *text* is shown in the accent colour
   static const fadeZone =
       .25; // top share of the screen where content fades out as it scrolls away
