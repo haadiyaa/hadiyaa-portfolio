@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/core/constants.dart';
-import 'package:haadiya_portfolio/models/models.dart';
-import 'package:haadiya_portfolio/core/responsive.dart';
-import 'package:haadiya_portfolio/core/theme.dart';
+import '../core/constants.dart';
+import '../core/responsive.dart';
+import '../core/theme.dart';
+import '../models/models.dart';
 import 'chips.dart';
 import 'hover.dart';
 
@@ -10,7 +10,8 @@ import 'hover.dart';
 class ProjectCard extends StatelessWidget {
   final Project project;
   final double width;
-  const ProjectCard(this.project, this.width, {super.key});
+  final double? height; // defaults to the height for the current screen width
+  const ProjectCard(this.project, this.width, {super.key, this.height});
   @override
   Widget build(BuildContext context) {
     final p = context.p;
@@ -20,13 +21,13 @@ class ProjectCard extends StatelessWidget {
             duration: K.ms,
             curve: Curves.easeOut,
             transform: Matrix4.translationValues(0, h ? -6 : 0, 0),
-            height: context.cardH,
+            height: height ?? context.cardH,
             padding: EdgeInsets.all(context.mob ? 24 : 32),
             decoration: BoxDecoration(
                 color: p.card,
                 borderRadius: BorderRadius.circular(28),
-                border: Border.all(color: h ? p.accent.withValues(alpha: .6) : p.line),
-                boxShadow: h ? [BoxShadow(color: p.accent.withValues(alpha: .12), blurRadius: 60)] : []),
+                border: Border.all(color: h ? p.accent.withOpacity(.6) : p.line),
+                boxShadow: h ? [BoxShadow(color: p.accent.withOpacity(.12), blurRadius: 60)] : []),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Text(project.kind, style: TextStyle(color: p.accent, fontWeight: FontWeight.w600)),

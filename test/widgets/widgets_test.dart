@@ -46,11 +46,11 @@ void main() {
   });
 
   for (final width in [1400.0, 800.0, 390.0]) {
-    testWidgets('work cards in the sliding row are the same size at ${width.toInt()}px', (t) async {
+    testWidgets('all work cards are the same size at ${width.toInt()}px', (t) async {
       setScreen(t, width);
       await pumpPage(t, const Padding(padding: EdgeInsets.symmetric(horizontal: 22), child: WorkSection()));
-      final cards = find.byType(ProjectCard); // only the cards on screen are built, the row is endless
-      expect(cards, findsWidgets);
+      final cards = find.byType(ProjectCard);
+      expect(cards, findsWidgets); // the list is endless, so only the cards near the screen exist
       final first = t.getSize(cards.first);
       for (var i = 1; i < cards.evaluate().length; i++) {
         expect(t.getSize(cards.at(i)), first);
@@ -59,12 +59,14 @@ void main() {
     });
   }
 
-  testWidgets('the project row drifts sideways on its own', (t) async {
+  testWidgets('work cards drift sideways by themselves', (t) async {
     setScreen(t, 1400);
     await pumpPage(t, const WorkSection());
     double offset() => t.widget<ListView>(find.byType(ListView)).controller!.offset;
     final before = offset();
-    await t.pump(const Duration(seconds: 2));
-    expect(offset(), greaterThan(before + K.workScrollSpeed)); // moved about 2 seconds' worth
+    for (var i = 0; i < 60; i++) {
+      await t.pump(const Duration(milliseconds: 33)); // about 2 seconds in frame-sized steps
+    }
+    expect(offset(), greaterThan(before + 40)); // drifts about 40 px a second
   });
 }

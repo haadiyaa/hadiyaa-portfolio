@@ -16,6 +16,7 @@ class K {
     "BUILDING *CROSS-PLATFORM* SCALABLE APPLICATIONS.",
     'FOCUSED ON CLEAN CODE, SEAMLESS INTEGRATIONS, AND INTUITIVE USER EXPERIENCES.',
   ]; // *text* is shown in the accent colour
+  static const marqueeSpeed = 40.0; // px per second the work cards drift
   static const fadeZone = .25; // top share of the screen where content fades out as it scrolls away
   static const scrollHint = 'Scroll';
   static const heroLabel = 'FLUTTER'; // small spaced label above the big word
