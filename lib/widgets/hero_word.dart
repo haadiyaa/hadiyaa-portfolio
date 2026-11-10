@@ -27,7 +27,7 @@ class HeroWord extends StatelessWidget {
     final size = mob ? context.w * .30 : 400.0;
     final padV = size * .3, padH = size * .08; // room so nothing leaves the mask, letters never get cut
     final wide = math.min(context.w * .98, context.h * 2.4); // may break out of the page padding
-    final style = GoogleFonts.bricolageGrotesque(fontSize: size, fontWeight: FontWeight.w800, height: .85, letterSpacing: -size * .04, color: Colors.white);
+    final style = GoogleFonts.bricolageGrotesque(fontSize: size, fontWeight: FontWeight.w600, height: .85, letterSpacing: -size * .04, color: Colors.white);
     var n = 0;
     final lines = [
       for (final line in mob ? K.heroWordMobile : [K.heroWord])

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/models/models.dart';
-import 'package:haadiya_portfolio/core/responsive.dart';
-import 'package:haadiya_portfolio/core/theme.dart';
+import '../core/responsive.dart';
+import '../core/theme.dart';
+import '../models/models.dart';
 
 class TimelineItem extends StatelessWidget {
   final Job job;
@@ -11,21 +11,21 @@ class TimelineItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = context.p;
     return Container(
-        margin: const EdgeInsets.only(left: 6),
+        margin: const EdgeInsets.only(left: 8),
         padding: const EdgeInsets.only(left: 32, bottom: 48),
         decoration: BoxDecoration(border: Border(left: BorderSide(color: p.line))),
         child: Stack(clipBehavior: Clip.none, children: [
           Positioned(
-              left: -39, top: 6,
+              left: -40, top: 4,
               child: Container(
-                  width: 14, height: 14,
+                  width: 16, height: 16,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: highlight ? p.accent : p.bg,
                       border: Border.all(color: highlight ? p.accent : p.muted, width: 2),
-                      boxShadow: highlight ? [BoxShadow(color: p.accent.withValues(alpha: .5), blurRadius: 14)] : []))),
+))),
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(job.when, style: TextStyle(color: p.accent, fontWeight: FontWeight.w600)),
+            Text(job.when, style: mono(context, 14)),
             const SizedBox(height: 8),
             Text(job.role, style: head(context, context.mob ? 24 : 30)),
             const SizedBox(height: 4),

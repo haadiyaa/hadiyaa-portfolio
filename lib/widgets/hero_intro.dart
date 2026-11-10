@@ -10,10 +10,8 @@ class HeroIntro extends StatelessWidget {
   const HeroIntro(this.progress, {super.key});
   @override
   Widget build(BuildContext context) {
-    final pal = context.p,
-        size = (context.w * .024).clamp(18.0, 34.0).toDouble();
-    final base = head(context, size, pal.ink.withOpacity(.92)).copyWith(
-        fontWeight: FontWeight.w500, height: 1.35, letterSpacing: -size * .01);
+    final pal = context.p, size = (context.w * .024).clamp(18.0, 34.0).toDouble();
+    final base = head(context, size, pal.ink.withOpacity(.92)).copyWith(fontWeight: FontWeight.w500, height: 1.35, letterSpacing: 0);
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: context.pad),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
@@ -25,20 +23,10 @@ class HeroIntro extends StatelessWidget {
                   child: Transform.translate(
                       offset: Offset(0, (1 - t) * 28),
                       child: Text.rich(
-                          TextSpan(
-                            style: TextStyle(fontSize: context.mob ? 20 : 30),
-                            children: [
-                              for (final (text, highlight)
-                                  in marked(K.introLines[i]))
-                                TextSpan(
-                                    text: text,
-                                    style: highlight
-                                        ? TextStyle(
-                                            color: pal.accent,
-                                            fontWeight: FontWeight.w700)
-                                        : null),
-                            ],
-                          ),
+                          TextSpan(children: [
+                            for (final (text, highlight) in marked(K.introLines[i]))
+                              TextSpan(text: text, style: highlight ? TextStyle(color: pal.accent, fontWeight: FontWeight.w600) : null),
+                          ]),
                           textAlign: TextAlign.center,
                           style: base)));
             }),

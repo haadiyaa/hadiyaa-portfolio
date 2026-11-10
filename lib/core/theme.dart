@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:haadiya_portfolio/core/constants.dart';
+import 'constants.dart';
 
 /// Colors that change between light and dark mode.
 @immutable
@@ -30,5 +30,10 @@ extension ThemeX on BuildContext {
   Palette get p => Theme.of(this).extension<Palette>()!;
 }
 
+/// Display and headings. Weight 600 at most; tight tracking only on large sizes.
 TextStyle head(BuildContext c, double s, [Color? color]) => GoogleFonts.bricolageGrotesque(
-    fontSize: s, fontWeight: FontWeight.w700, height: 1.05, letterSpacing: -s * .03, color: color ?? c.p.ink);
+    fontSize: s, fontWeight: FontWeight.w600, height: 1.05, letterSpacing: s >= 32 ? -s * .03 : 0, color: color ?? c.p.ink);
+
+/// Meta text: dates, project types, tags.
+TextStyle mono(BuildContext c, double s, [Color? color]) =>
+    GoogleFonts.jetBrainsMono(fontSize: s, fontWeight: FontWeight.w400, height: 1.4, color: color ?? c.p.muted);

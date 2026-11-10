@@ -9,9 +9,8 @@ class K {
   static const email = 'haadiyact@gmail.com';
   static const linkedin = 'https://www.linkedin.com/in/haadiya-ct-47775621b/';
   static const github = 'https://github.com/haadiyaa';
-  static const tagline = 'I build Flutter apps that stay fast and usable offline, from restaurant ERPs to live analytics dashboards.';
-  static const contactTitle = 'Let\'s build something\npeople enjoy using.';
-  static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter.';
+  static const contactTitle = 'Need a Flutter developer?\nGet in touch';
+  static const footer = 'Haadiya CT, Kozhikode, Kerala. Built with Flutter';
   static const introLines = [
     "BUILDING *CROSS-PLATFORM* SCALABLE APPLICATIONS.",
     'FOCUSED ON CLEAN CODE, SEAMLESS INTEGRATIONS, AND INTUITIVE USER EXPERIENCES.',
@@ -46,12 +45,14 @@ class K {
 
   static const mobileBp = 700.0, wideBp = 900.0, tabletBp = 1100.0, maxWidth = 1280.0, gap = 24.0;
 
+  // One neutral ramp tinted toward the navy of her blazer, warm off-white text from her hijab,
+  // and a single muted sand accent taken from the same fabric. Used rarely.
   static const dark = Palette(
-      bg: Color(0xFF130F1C), card: Color(0xFF1C1628), ink: Color(0xFFF4EEFF), soft: Color(0xFFC9BEDD),
-      muted: Color(0xFF9A8FB3), line: Color(0x1FFFFFFF), accent: Color(0xFFFF7A9C), onAccent: Color(0xFF1A0B12), glow: Color(0xFF7C5CFF));
+      bg: Color(0xFF0E1117), card: Color(0xFF151A22), ink: Color(0xFFECE9E2), soft: Color(0xFFB4B9C4),
+      muted: Color(0xFF858B99), line: Color(0x1AECE9E2), accent: Color(0xFFD8C3A5), onAccent: Color(0xFF17130B), glow: Color(0xFF1B2436));
   static const light = Palette(
-      bg: Color(0xFFF7F4FC), card: Color(0xFFFFFFFF), ink: Color(0xFF1B1230), soft: Color(0xFF4A3F63),
-      muted: Color(0xFF7A6F92), line: Color(0x1F1B1230), accent: Color(0xFFD81B60), onAccent: Color(0xFFFFFFFF), glow: Color(0xFFFFA8C5));
+      bg: Color(0xFFF4F2EE), card: Color(0xFFFFFFFF), ink: Color(0xFF15181F), soft: Color(0xFF444A57),
+      muted: Color(0xFF6B7180), line: Color(0x1A15181F), accent: Color(0xFF7E5F2B), onAccent: Color(0xFFFFFFFF), glow: Color(0xFFDDE2EC));
 
   static const stats = [Stat('3+', 'years shipping Flutter'), Stat('5+', 'apps built'), Stat('4', 'platforms, one codebase')];
 

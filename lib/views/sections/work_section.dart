@@ -11,6 +11,6 @@ class WorkSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final projects = ref.watch(portfolioProvider).projects;
-    return SectionBlock(1, K.navLinks[1], 'Products I have built and shipped.', Reveal(child: ProjectMarquee(projects)));
+    return SectionBlock(1, K.navLinks[1], 'Products I have built and shipped', Reveal(child: ProjectMarquee(projects)));
   }
 }

@@ -13,7 +13,7 @@ class StackSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final groups = ref.watch(portfolioProvider).stack;
-    return SectionBlock(2, K.navLinks[2], 'The tools I reach for.', Column(children: [
+    return SectionBlock(2, K.navLinks[2], 'The tools I reach for', Column(children: [
       for (var i = 0; i < groups.length; i++)
         Reveal(
             delay: i * 100,

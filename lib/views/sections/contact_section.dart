@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/widgets/app_button.dart';
-import 'package:haadiya_portfolio/core/constants.dart';
-import 'package:haadiya_portfolio/widgets/hover.dart';
-import 'package:haadiya_portfolio/viewmodels/nav_vm.dart';
-import 'package:haadiya_portfolio/core/responsive.dart';
-import 'package:haadiya_portfolio/widgets/reveal.dart';
-import 'package:haadiya_portfolio/core/theme.dart';
+import '../../core/constants.dart';
+import '../../core/responsive.dart';
+import '../../core/theme.dart';
+import '../../viewmodels/nav_vm.dart';
+import '../../widgets/app_button.dart';
+import '../../widgets/pressable.dart';
+import '../../widgets/reveal.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
@@ -18,20 +18,20 @@ class ContactSection extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(K.contactTitle, style: head(context, context.mob ? 40 : 84)),
           const SizedBox(height: 36),
-          Hover((h) => GestureDetector(
+          Pressable(
               onTap: openMail,
-              child: AnimatedDefaultTextStyle(
+              builder: (h, f) => AnimatedDefaultTextStyle(
                   duration: K.ms,
-                  style: head(context, context.mob ? 22 : 36, h ? p.accent : p.ink).copyWith(decoration: TextDecoration.underline, decorationColor: h ? p.accent : p.muted),
-                  child: const Text(K.email)))),
+                  style: head(context, context.mob ? 24 : 36, h || f ? p.accent : p.ink).copyWith(decoration: TextDecoration.underline, decorationColor: h || f ? p.accent : p.muted),
+                  child: const Text(K.email))),
           const SizedBox(height: 32),
-          Wrap(spacing: 14, runSpacing: 14, children: [
+          Wrap(spacing: 16, runSpacing: 16, children: [
             AppButton('LinkedIn', () => openUrl(K.linkedin), filled: false),
             AppButton('GitHub', () => openUrl(K.github), filled: false),
           ]),
           const SizedBox(height: 80),
           Divider(color: p.line),
-          Padding(padding: const EdgeInsets.symmetric(vertical: 20), child: Text(K.footer, style: TextStyle(color: p.muted))),
+          Padding(padding: const EdgeInsets.symmetric(vertical: 24), child: Text(K.footer, style: TextStyle(color: p.muted))),
         ])));
   }
 }

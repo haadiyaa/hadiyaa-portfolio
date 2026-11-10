@@ -9,15 +9,8 @@ class ScrollHint extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = context.p;
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40),
-            border: Border.all(color: p.muted.withOpacity(.5))),
-        child: Text(text,
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                letterSpacing: 0,
-                color: p.soft)));
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), border: Border.all(color: p.muted.withOpacity(.5))),
+        child: Text(text, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, letterSpacing: 0, color: p.soft)));
   }
 }

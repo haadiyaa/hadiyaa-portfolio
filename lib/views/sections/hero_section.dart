@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/widgets/particle_character.dart';
 import '../../core/constants.dart';
 import '../../core/responsive.dart';
 import '../../viewmodels/hero_vm.dart';
@@ -8,6 +7,7 @@ import '../../widgets/floating_character.dart';
 import '../../widgets/hero_intro.dart';
 import '../../widgets/hero_name.dart';
 import '../../widgets/hero_word.dart';
+import '../../widgets/particle_character.dart';
 import '../../widgets/scroll_hint.dart';
 
 /// The hero stays pinned for a while as you scroll: the character lifts away and the intro
@@ -74,7 +74,7 @@ class HeroSection extends StatelessWidget {
                                             child: FloatingCharacter(loop, charH,
                                                 shadowOpacity: _fade(intro.value, .75, 1) * (1 - phase(p, 0, .3)),
                                                 image: ParticleCharacter(width: charH * K.characterAspect, height: charH, lift: p, mouse: mouse)))),
-                                const SizedBox(height: 14),
+                                const SizedBox(height: 16),
                                 Opacity(opacity: _fade(intro.value, .75, 1), child: HeroName(K.name.toUpperCase())),
                               ]))),
                       if (!mob)

@@ -25,7 +25,7 @@ class FloatingCharacter extends StatelessWidget {
                 opacity: shadowOpacity,
                 child: Container(
                 width: width * .55 * (1 - .06 * bob),
-                height: 18,
+                height: 16,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     boxShadow: [BoxShadow(color: Colors.black.withOpacity(shadow), blurRadius: 30, spreadRadius: 4)]))),

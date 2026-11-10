@@ -20,18 +20,18 @@ class ProjectCard extends StatelessWidget {
         child: Hover((h) => AnimatedContainer(
             duration: K.ms,
             curve: Curves.easeOut,
-            transform: Matrix4.translationValues(0, h ? -6 : 0, 0),
+            transform: Matrix4.translationValues(0, h ? -4 : 0, 0),
             height: height ?? context.cardH,
             padding: EdgeInsets.all(context.mob ? 24 : 32),
             decoration: BoxDecoration(
-                color: p.card,
-                borderRadius: BorderRadius.circular(28),
-                border: Border.all(color: h ? p.accent.withOpacity(.6) : p.line),
-                boxShadow: h ? [BoxShadow(color: p.accent.withOpacity(.12), blurRadius: 60)] : []),
+                // Hover is a small surface step and a clearer hairline. No glow.
+                color: h ? Color.alphaBlend(p.ink.withOpacity(.03), p.card) : p.card,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: h ? p.muted.withOpacity(.5) : p.line)),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text(project.kind, style: TextStyle(color: p.accent, fontWeight: FontWeight.w600)),
-                AnimatedRotation(turns: h ? -.125 : 0, duration: K.ms, child: Icon(Icons.arrow_forward, color: h ? p.accent : p.muted)),
+                Text(project.kind, style: mono(context, 13)),
+                AnimatedRotation(turns: h ? -.125 : 0, duration: K.ms, child: Icon(Icons.arrow_forward, size: 20, color: h ? p.accent : p.muted)),
               ]),
               const SizedBox(height: 44),
               Text(project.name, style: head(context, 32)),

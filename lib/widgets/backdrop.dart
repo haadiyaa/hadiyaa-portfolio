@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:haadiya_portfolio/core/theme.dart';
+import '../core/theme.dart';
 
 class _Orbs extends CustomPainter {
   final double t;
@@ -11,8 +11,8 @@ class _Orbs extends CustomPainter {
     void orb(Offset o, double r, Color col) => c.drawCircle(o, r,
         Paint()..shader = RadialGradient(colors: [col, Colors.transparent]).createShader(Rect.fromCircle(center: o, radius: r)));
     final k = t * 2 * math.pi;
-    orb(Offset(s.width * .82 + math.cos(k) * 90, s.height * .18 + math.sin(k) * 60), 440, a.withValues(alpha: .14));
-    orb(Offset(s.width * .08 + math.sin(k) * 70, s.height * .5 + math.cos(k) * 90), 380, b.withValues(alpha: .18));
+    orb(Offset(s.width * .82 + math.cos(k) * 90, s.height * .18 + math.sin(k) * 60), 440, a.withOpacity(.07));
+    orb(Offset(s.width * .08 + math.sin(k) * 70, s.height * .5 + math.cos(k) * 90), 380, b.withOpacity(.7));
   }
 
   @override
@@ -25,7 +25,7 @@ class _Glow extends CustomPainter {
   _Glow(this.o, this.col);
   @override
   void paint(Canvas c, Size s) => c.drawCircle(o, 260,
-      Paint()..shader = RadialGradient(colors: [col.withValues(alpha: .10), Colors.transparent]).createShader(Rect.fromCircle(center: o, radius: 260)));
+      Paint()..shader = RadialGradient(colors: [col.withOpacity(.05), Colors.transparent]).createShader(Rect.fromCircle(center: o, radius: 260)));
   @override
   bool shouldRepaint(_Glow o) => true;
 }

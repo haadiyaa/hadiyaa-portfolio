@@ -19,7 +19,7 @@ class SectionBlock extends StatelessWidget {
         Reveal(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(title, style: head(context, context.mob ? 38 : 60)),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           Text(subtitle, style: TextStyle(color: context.p.muted, fontSize: 17)),
         ])),
         const SizedBox(height: 44),
